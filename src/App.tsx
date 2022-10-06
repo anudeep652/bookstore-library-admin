@@ -2,8 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "./app/store";
 import Login from "./pages/Login";
-import { book, bookItems } from "./types";
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import CreateBook from "./pages/CreateBook";
 import SubmitBook from "./pages/SubmitBook";
 
