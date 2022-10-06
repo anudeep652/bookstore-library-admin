@@ -8,7 +8,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch<AppDispatch>();
-  const { username, isSuccess } = useSelector((state: RootState) => state.auth);
+  const { isSuccess } = useSelector((state: RootState) => state.auth);
   const navigate = useNavigate();
 
   const handleClick = (e: React.FormEvent<HTMLFormElement>) => {
@@ -25,7 +25,7 @@ const Login = () => {
       navigate("/createbook");
       dispatch(reset());
     }
-  }, [dispatch]);
+  }, [dispatch, isSuccess, navigate]);
   return (
     <>
       <div className="relative flex flex-col justify-center min-h-screen overflow-hidden">
