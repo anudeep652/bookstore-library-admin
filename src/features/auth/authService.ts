@@ -1,6 +1,6 @@
 import axios from "axios";
 import { createBook, loginType } from "../../types";
-const URL = process.env.API_URL || "http://localhost:5000";
+const URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
 
 export const loginUser = async (data: loginType) => {
   const response = await axios.post(`${URL}/admin/login`, data);
