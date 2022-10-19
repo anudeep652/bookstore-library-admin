@@ -10,16 +10,20 @@ const CreateBook = () => {
   const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate();
   const [bookFields, setBookFields] = useState<createBook>({
-    bookName: "",
-    authorName: "",
-    buyAmount: 0,
+    name: "",
+    author: "",
+    payAmount: 0,
     rentAmount: 0,
     imageUrl: "",
+    reviews: [],
     description: "",
   });
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    console.log(bookFields);
+    bookFields.payAmount = Number(bookFields.payAmount);
+    bookFields.rentAmount = Number(bookFields.rentAmount);
     dispatch(createNewBook(bookFields));
     navigate("/submit-book");
   };
@@ -46,7 +50,7 @@ const CreateBook = () => {
                 book Name
               </label>
               <input
-                value={bookFields.bookName}
+                value={bookFields.name}
                 onChange={(e) =>
                   setBookFields({
                     ...bookFields,
@@ -56,20 +60,20 @@ const CreateBook = () => {
                 autoFocus
                 required
                 type="text"
-                id="book-name"
-                name="bookName"
+                id="name"
+                name="name"
                 className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
               />
             </div>
             <div className="relative mb-4">
               <label
-                htmlFor="author-name"
+                htmlFor="author"
                 className="leading-7 text-sm text-gray-600"
               >
                 Author name
               </label>
               <input
-                value={bookFields.authorName}
+                value={bookFields.author}
                 onChange={(e) =>
                   setBookFields({
                     ...bookFields,
@@ -78,20 +82,20 @@ const CreateBook = () => {
                 }
                 required
                 type="text"
-                id="author-name"
-                name="authorName"
+                id="author"
+                name="author"
                 className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
               />
             </div>
             <div className="relative mb-4">
               <label
-                htmlFor="buy-amount"
+                htmlFor="payAmount"
                 className="leading-7 text-sm text-gray-600"
               >
                 Buy amount
               </label>
               <input
-                value={bookFields.buyAmount}
+                value={bookFields.payAmount}
                 onChange={(e) =>
                   setBookFields({
                     ...bookFields,
@@ -100,8 +104,8 @@ const CreateBook = () => {
                 }
                 required
                 type="number"
-                id="buy-amount"
-                name="buyAmount"
+                id="payAmount"
+                name="payAmount"
                 className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
               />
             </div>

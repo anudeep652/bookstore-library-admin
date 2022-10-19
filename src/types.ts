@@ -8,8 +8,8 @@ export interface reviews {
 export interface bookItems {
   name: string;
   author: string;
-  payAmount: number;
-  rentAmount: number;
+  payAmount: number | string;
+  rentAmount: number | string;
   imageUrl: string;
   stars?: number;
   reviews?: reviews[];
@@ -33,10 +33,11 @@ export interface initialStateType {
 }
 
 export interface createBook {
-  bookName: string;
-  authorName: string;
-  buyAmount: number;
+  name: string;
+  author: string;
+  payAmount: number;
   rentAmount: number;
   imageUrl: string;
+  reviews: reviews[];
   description: string;
 }
